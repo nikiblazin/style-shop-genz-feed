@@ -31,9 +31,9 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
   const [isLiked, setIsLiked] = useState(false);
 
   return (
-    <div className="relative w-full h-screen bg-black">
+    <div className="relative w-full h-screen bg-black flex items-center justify-center">
       {/* Main Media (Image or Video) */}
-      <div className="w-full h-full relative">
+      <div className="relative w-full h-full">
         {post.type === "video" ? (
           <video 
             src={post.media}
@@ -47,7 +47,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
           <img 
             src={post.media} 
             alt="Fashion post"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain bg-black"
           />
         )}
         
