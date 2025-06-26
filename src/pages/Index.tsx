@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import FeedPost from "../components/FeedPost";
 import BottomNavigation from "../components/BottomNavigation";
@@ -46,10 +45,10 @@ const Index = () => {
         name: "TrendSetter",
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150"
       },
-      type: "video" as const,
-      media: "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
+      type: "image" as const,
+      media: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600",
       likes: 3156,
-      caption: "Party ready! 💃 #nightout #glam #sparkle",
+      caption: "Gen Z vibes! 💫 #genz #streetstyle #trendy",
       products: [
         { id: 6, name: "Sequin Dress", price: "$149", image: "https://images.unsplash.com/photo-1566479179817-40d4c3e4b701?w=150" },
         { id: 7, name: "Statement Earrings", price: "$29", image: "https://images.unsplash.com/photo-1635767798036-3e4eedcfb917?w=150" },
