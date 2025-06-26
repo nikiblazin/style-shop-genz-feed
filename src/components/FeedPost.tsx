@@ -141,9 +141,9 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
             </div>
           </div>
 
-          {/* Product Strip with better visibility and scrollbar */}
+          {/* Product Strip with hidden scrollbar */}
           <div className="px-4">
-            <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent">
+            <div className="flex gap-3 overflow-x-auto pb-4 hide-scrollbar">
               {post.products.map((product) => (
                 <button
                   key={product.id}

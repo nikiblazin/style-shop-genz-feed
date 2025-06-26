@@ -61,4 +61,14 @@
   .product-item {
     @apply bg-white rounded-lg border border-gray-200 p-3 min-w-[120px] shadow-sm;
   }
+
+  /* Hide scrollbars */
+  .hide-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 }
