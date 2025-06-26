@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import FeedPost from "../components/FeedPost";
 import BottomNavigation from "../components/BottomNavigation";
+import TopNavigation from "../components/TopNavigation";
 import ProductModal from "../components/ProductModal";
 
 const Index = () => {
@@ -74,6 +74,8 @@ const Index = () => {
 
   return (
     <div className="h-screen bg-black overflow-hidden">
+      <TopNavigation />
+      
       {/* TikTok-style full screen feed */}
       <div className="h-full overflow-y-scroll snap-y snap-mandatory">
         {feedData.map((post) => (
