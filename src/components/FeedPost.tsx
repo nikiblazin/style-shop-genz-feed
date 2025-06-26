@@ -15,7 +15,8 @@ interface Post {
     name: string;
     avatar: string;
   };
-  image: string;
+  type: "image" | "video";
+  media: string;
   likes: number;
   caption: string;
   products: Product[];
@@ -31,13 +32,24 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
 
   return (
     <div className="relative w-full h-screen bg-black">
-      {/* Main Image/Video */}
+      {/* Main Media (Image or Video) */}
       <div className="w-full h-full relative">
-        <img 
-          src={post.image} 
-          alt="Fashion post"
-          className="w-full h-full object-cover"
-        />
+        {post.type === "video" ? (
+          <video 
+            src={post.media}
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        ) : (
+          <img 
+            src={post.media} 
+            alt="Fashion post"
+            className="w-full h-full object-cover"
+          />
+        )}
         
         {/* Right side actions - TikTok style */}
         <div className="absolute right-4 bottom-32 flex flex-col items-center gap-6">

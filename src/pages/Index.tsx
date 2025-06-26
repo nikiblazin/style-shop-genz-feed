@@ -14,7 +14,8 @@ const Index = () => {
         name: "StyleInfluencer",
         avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150"
       },
-      image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600",
+      type: "video",
+      media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       likes: 2847,
       caption: "Street style vibes ✨ #ootd #streetfashion #trending",
       products: [
@@ -29,7 +30,8 @@ const Index = () => {
         name: "FashionGuru",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150"
       },
-      image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600",
+      type: "image",
+      media: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600",
       likes: 1923,
       caption: "Minimalist autumn look 🍂 #minimal #cozy #fall",
       products: [
@@ -43,13 +45,29 @@ const Index = () => {
         name: "TrendSetter",
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150"
       },
-      image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600",
+      type: "video",
+      media: "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
       likes: 3156,
       caption: "Party ready! 💃 #nightout #glam #sparkle",
       products: [
         { id: 6, name: "Sequin Dress", price: "$149", image: "https://images.unsplash.com/photo-1566479179817-40d4c3e4b701?w=150" },
         { id: 7, name: "Statement Earrings", price: "$29", image: "https://images.unsplash.com/photo-1635767798036-3e4eedcfb917?w=150" },
         { id: 8, name: "Clutch Bag", price: "$69", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=150" }
+      ]
+    },
+    {
+      id: 4,
+      user: {
+        name: "OutfitDaily",
+        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150"
+      },
+      type: "image",
+      media: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600",
+      likes: 4230,
+      caption: "Casual Friday outfit inspo 👔 #workwear #casual #friday",
+      products: [
+        { id: 9, name: "Denim Shirt", price: "$65", image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=150" },
+        { id: 10, name: "Brown Belt", price: "$35", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=150" }
       ]
     }
   ];
