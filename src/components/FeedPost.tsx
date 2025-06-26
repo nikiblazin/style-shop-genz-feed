@@ -51,8 +51,8 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
           />
         )}
         
-        {/* Right side actions - TikTok style */}
-        <div className="absolute right-3 bottom-32 flex flex-col items-center gap-4">
+        {/* Right side actions - TikTok style - moved higher up */}
+        <div className="absolute right-3 bottom-48 flex flex-col items-center gap-4">
           {/* User Avatar */}
           <div className="relative">
             <img 
@@ -85,7 +85,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
           {/* Comment Button */}
           <div className="flex flex-col items-center">
             <button className="w-10 h-10 rounded-full flex items-center justify-center">
-              <MessageCircle size={24} className="text-white" />
+              <MessageCircle size={24} className="text-white" fill="white" />
             </button>
             <span className="text-white text-xs font-semibold mt-1">124</span>
           </div>
@@ -93,7 +93,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
           {/* Share Button */}
           <div className="flex flex-col items-center">
             <button className="w-10 h-10 rounded-full flex items-center justify-center">
-              <Share size={24} className="text-white" />
+              <Share size={24} className="text-white" fill="white" />
             </button>
             <span className="text-white text-xs font-semibold mt-1">Share</span>
           </div>
@@ -101,7 +101,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
           {/* Bookmark Button */}
           <div className="flex flex-col items-center">
             <button className="w-10 h-10 rounded-full flex items-center justify-center">
-              <Bookmark size={24} className="text-white" />
+              <Bookmark size={24} className="text-white" fill="white" />
             </button>
           </div>
         </div>
