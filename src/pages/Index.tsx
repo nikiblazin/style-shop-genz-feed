@@ -43,10 +43,10 @@ const Index = () => {
       id: 3,
       user: {
         name: "TrendSetter",
-        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150"
+        avatar: "https://images.unsplash.com/photo-1438761681033-6e44c42644a7?w=150"
       },
       type: "image" as const,
-      media: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600",
+      media: "/lovable-uploads/bb275cb2-ccda-4457-9b77-6dfc03cab700.png",
       likes: 3156,
       caption: "Gen Z vibes! 💫 #genz #streetstyle #trendy",
       products: [
