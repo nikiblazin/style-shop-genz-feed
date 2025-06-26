@@ -7,7 +7,7 @@ const TopNavigation = () => {
   const tabs = ["Neked", "Felfedezés"];
 
   return (
-    <div className="absolute top-0 left-0 right-0 z-30 bg-black/20 backdrop-blur-sm">
+    <div className="absolute top-0 left-0 right-0 z-30">
       <div className="flex justify-center items-center pt-12 pb-4">
         {tabs.map((tab) => (
           <div key={tab} className="relative mx-6">
