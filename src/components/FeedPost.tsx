@@ -76,7 +76,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
           <div className="flex flex-col items-center">
             <button 
               onClick={() => setIsLiked(!isLiked)}
-              className="w-12 h-12 rounded-full flex items-center justify-center"
+              className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center"
             >
               <Heart 
                 size={28} 
@@ -91,7 +91,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
 
           {/* Comment Button */}
           <div className="flex flex-col items-center">
-            <button className="w-12 h-12 rounded-full flex items-center justify-center">
+            <button className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
               <MessageCircle size={28} className="text-white" />
             </button>
             <span className="text-white text-xs font-semibold mt-1">124</span>
@@ -99,7 +99,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
 
           {/* Share Button */}
           <div className="flex flex-col items-center">
-            <button className="w-12 h-12 rounded-full flex items-center justify-center">
+            <button className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
               <Share size={28} className="text-white" />
             </button>
             <span className="text-white text-xs font-semibold mt-1">Share</span>
@@ -107,7 +107,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
 
           {/* Bookmark Button */}
           <div className="flex flex-col items-center">
-            <button className="w-12 h-12 rounded-full flex items-center justify-center">
+            <button className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
               <Bookmark size={28} className="text-white" />
             </button>
           </div>
