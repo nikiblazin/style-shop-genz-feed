@@ -52,7 +52,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
         )}
         
         {/* Right side actions - TikTok style */}
-        <div className="absolute right-4 bottom-32 flex flex-col items-center gap-6">
+        <div className="absolute right-4 bottom-40 flex flex-col items-center gap-6">
           {/* User Avatar */}
           <div className="relative">
             <img 
@@ -106,33 +106,33 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
           </button>
         </div>
 
-        {/* Bottom content */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+        {/* Bottom content with better spacing */}
+        <div className="absolute bottom-0 left-0 right-0 pb-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
           {/* User info and caption */}
-          <div className="mb-4">
+          <div className="px-4 mb-4">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-white font-semibold text-lg">@{post.user.name}</span>
             </div>
             <p className="text-white text-sm leading-relaxed">{post.caption}</p>
           </div>
 
-          {/* Product Strip */}
-          <div className="mb-4">
-            <div className="flex gap-3 overflow-x-auto pb-2">
+          {/* Product Strip with better visibility */}
+          <div className="px-4">
+            <div className="flex gap-3 overflow-x-auto pb-4">
               {post.products.map((product) => (
                 <button
                   key={product.id}
-                  className="bg-white/90 backdrop-blur-sm rounded-lg p-3 min-w-[100px] shadow-lg hover:bg-white transition-all"
+                  className="bg-white/95 backdrop-blur-sm rounded-xl p-3 min-w-[110px] shadow-xl hover:bg-white transition-all duration-200 hover:scale-105"
                   onClick={() => onProductClick(product)}
                 >
                   <img 
                     src={product.image} 
                     alt={product.name}
-                    className="w-full h-12 object-cover rounded mb-2"
+                    className="w-full h-14 object-cover rounded-lg mb-2"
                   />
                   <div className="text-xs">
-                    <p className="font-medium text-gray-900 truncate">{product.name}</p>
-                    <p className="text-gray-600 font-semibold">{product.price}</p>
+                    <p className="font-semibold text-gray-900 truncate mb-1">{product.name}</p>
+                    <p className="text-gray-700 font-bold">{product.price}</p>
                   </div>
                 </button>
               ))}

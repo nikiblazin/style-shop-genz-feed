@@ -14,7 +14,7 @@ const Index = () => {
         name: "StyleInfluencer",
         avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150"
       },
-      type: "video",
+      type: "video" as const,
       media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       likes: 2847,
       caption: "Street style vibes ✨ #ootd #streetfashion #trending",
@@ -30,7 +30,7 @@ const Index = () => {
         name: "FashionGuru",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150"
       },
-      type: "image",
+      type: "image" as const,
       media: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600",
       likes: 1923,
       caption: "Minimalist autumn look 🍂 #minimal #cozy #fall",
@@ -45,7 +45,7 @@ const Index = () => {
         name: "TrendSetter",
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150"
       },
-      type: "video",
+      type: "video" as const,
       media: "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
       likes: 3156,
       caption: "Party ready! 💃 #nightout #glam #sparkle",
@@ -61,7 +61,7 @@ const Index = () => {
         name: "OutfitDaily",
         avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150"
       },
-      type: "image",
+      type: "image" as const,
       media: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600",
       likes: 4230,
       caption: "Casual Friday outfit inspo 👔 #workwear #casual #friday",
