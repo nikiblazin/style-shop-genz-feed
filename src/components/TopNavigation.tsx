@@ -4,7 +4,7 @@ import { useState } from "react";
 const TopNavigation = () => {
   const [activeTab, setActiveTab] = useState("Neked");
 
-  const tabs = ["Neked", "Felfedezés"];
+  const tabs = ["Neked", "Követés"];
 
   return (
     <div className="absolute top-0 left-0 right-0 z-30">
