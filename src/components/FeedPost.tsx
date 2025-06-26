@@ -76,10 +76,10 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
           <div className="flex flex-col items-center">
             <button 
               onClick={() => setIsLiked(!isLiked)}
-              className="w-10 h-10 rounded-full flex items-center justify-center"
+              className="w-12 h-12 rounded-full flex items-center justify-center"
             >
               <Heart 
-                size={20} 
+                size={28} 
                 className={isLiked ? 'text-red-500' : 'text-white'} 
                 fill={isLiked ? 'currentColor' : 'none'} 
               />
@@ -91,24 +91,24 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
 
           {/* Comment Button */}
           <div className="flex flex-col items-center">
-            <button className="w-10 h-10 rounded-full flex items-center justify-center">
-              <MessageCircle size={20} className="text-white" />
+            <button className="w-12 h-12 rounded-full flex items-center justify-center">
+              <MessageCircle size={28} className="text-white" />
             </button>
             <span className="text-white text-xs font-semibold mt-1">124</span>
           </div>
 
           {/* Share Button */}
           <div className="flex flex-col items-center">
-            <button className="w-10 h-10 rounded-full flex items-center justify-center">
-              <Share size={20} className="text-white" />
+            <button className="w-12 h-12 rounded-full flex items-center justify-center">
+              <Share size={28} className="text-white" />
             </button>
             <span className="text-white text-xs font-semibold mt-1">Share</span>
           </div>
 
           {/* Bookmark Button */}
           <div className="flex flex-col items-center">
-            <button className="w-10 h-10 rounded-full flex items-center justify-center">
-              <Bookmark size={20} className="text-white" />
+            <button className="w-12 h-12 rounded-full flex items-center justify-center">
+              <Bookmark size={28} className="text-white" />
             </button>
           </div>
         </div>
