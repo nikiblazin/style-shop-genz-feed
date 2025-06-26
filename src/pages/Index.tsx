@@ -51,8 +51,8 @@ const Index = () => {
       caption: "Gen Z vibes! 💫 #genz #streetstyle #trendy",
       products: [
         { id: 6, name: "Sequin Dress", price: "$149", image: "https://images.unsplash.com/photo-1566479179817-40d4c3e4b701?w=150" },
-        { id: 7, name: "Statement Earrings", price: "$29", image: "https://images.unsplash.com/photo-1635767798036-3e4eedcfb917?w=150" },
-        { id: 8, name: "Clutch Bag", price: "$69", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=150" }
+        { id: 7, name: "Statement Earrings", price: "$29", image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=150" },
+        { id: 8, name: "Clutch Bag", price: "$69", image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=150" }
       ]
     },
     {
