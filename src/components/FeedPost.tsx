@@ -52,7 +52,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
         )}
         
         {/* Right side actions - TikTok style */}
-        <div className="absolute right-4 bottom-40 flex flex-col items-center gap-6">
+        <div className="absolute right-3 bottom-32 flex flex-col items-center gap-4">
           {/* User Avatar */}
           <div className="relative">
             <img 
@@ -69,12 +69,10 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
           <div className="flex flex-col items-center">
             <button 
               onClick={() => setIsLiked(!isLiked)}
-              className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 ${
-                isLiked ? 'bg-red-500/20' : 'bg-black/20'
-              }`}
+              className="w-10 h-10 rounded-full flex items-center justify-center"
             >
               <Heart 
-                size={28} 
+                size={24} 
                 className={isLiked ? 'text-red-500' : 'text-white'} 
                 fill={isLiked ? 'currentColor' : 'none'} 
               />
@@ -86,28 +84,30 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
 
           {/* Comment Button */}
           <div className="flex flex-col items-center">
-            <button className="w-12 h-12 rounded-full bg-black/20 flex items-center justify-center">
-              <MessageCircle size={28} className="text-white" />
+            <button className="w-10 h-10 rounded-full flex items-center justify-center">
+              <MessageCircle size={24} className="text-white" />
             </button>
             <span className="text-white text-xs font-semibold mt-1">124</span>
           </div>
 
           {/* Share Button */}
           <div className="flex flex-col items-center">
-            <button className="w-12 h-12 rounded-full bg-black/20 flex items-center justify-center">
-              <Share size={28} className="text-white" />
+            <button className="w-10 h-10 rounded-full flex items-center justify-center">
+              <Share size={24} className="text-white" />
             </button>
             <span className="text-white text-xs font-semibold mt-1">Share</span>
           </div>
 
           {/* Bookmark Button */}
-          <button className="w-12 h-12 rounded-full bg-black/20 flex items-center justify-center">
-            <Bookmark size={28} className="text-white" />
-          </button>
+          <div className="flex flex-col items-center">
+            <button className="w-10 h-10 rounded-full flex items-center justify-center">
+              <Bookmark size={24} className="text-white" />
+            </button>
+          </div>
         </div>
 
         {/* Bottom content with better spacing */}
-        <div className="absolute bottom-0 left-0 right-0 pb-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+        <div className="absolute bottom-0 left-0 right-0 pb-28 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
           {/* User info and caption */}
           <div className="px-4 mb-4">
             <div className="flex items-center gap-2 mb-2">
