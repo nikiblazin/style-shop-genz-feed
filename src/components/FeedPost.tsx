@@ -1,13 +1,12 @@
 
 import { useState } from "react";
-import { Heart } from "lucide-react";
+import { Heart, MessageCircle, Share } from "lucide-react";
 
 interface Product {
   id: number;
   name: string;
   price: string;
-  x: number;
-  y: number;
+  image: string;
 }
 
 interface Post {
@@ -29,88 +28,84 @@ interface FeedPostProps {
 
 const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
   const [isLiked, setIsLiked] = useState(false);
-  const [showProducts, setShowProducts] = useState(false);
 
   return (
-    <div className="glass-card p-4 animate-slide-up">
+    <div className="feed-card">
       {/* User Header */}
-      <div className="flex items-center gap-3 mb-3">
+      <div className="flex items-center gap-3 p-4">
         <img 
           src={post.user.avatar} 
           alt={post.user.name}
-          className="w-10 h-10 rounded-full border-2 border-purple-400"
+          className="w-10 h-10 rounded-full"
         />
-        <span className="font-semibold text-white">{post.user.name}</span>
+        <span className="font-semibold text-black">{post.user.name}</span>
       </div>
 
-      {/* Image with Product Tags */}
-      <div 
-        className="relative rounded-xl overflow-hidden mb-3 cursor-pointer"
-        onClick={() => setShowProducts(!showProducts)}
-      >
+      {/* Image */}
+      <div className="w-full">
         <img 
           src={post.image} 
           alt="Fashion post"
           className="w-full h-96 object-cover"
         />
-        
-        {/* Product Tags Overlay */}
-        {showProducts && (
-          <div className="absolute inset-0 bg-black/20">
-            {post.products.map((product) => (
-              <button
-                key={product.id}
-                className="product-tag animate-bounce-soft"
-                style={{ left: `${product.x}%`, top: `${product.y}%` }}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onProductClick(product);
-                }}
-              >
-                <div className="w-3 h-3 bg-white rounded-full mb-1 mx-auto"></div>
-                <div className="text-xs font-medium">
-                  {product.name}
-                </div>
-                <div className="text-xs text-purple-300">
-                  {product.price}
-                </div>
-              </button>
-            ))}
-          </div>
-        )}
-        
-        {/* Tap to see products indicator */}
-        {!showProducts && (
-          <div className="absolute bottom-4 right-4 glass-button px-3 py-1 rounded-full text-xs text-white">
-            Tap to see products
-          </div>
-        )}
       </div>
 
       {/* Actions */}
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex items-center justify-between p-4">
         <div className="flex items-center gap-4">
           <button 
             onClick={() => setIsLiked(!isLiked)}
-            className={`transition-all duration-200 ${isLiked ? 'text-red-500 scale-110' : 'text-white'}`}
+            className={`transition-all duration-200 ${isLiked ? 'text-red-500' : 'text-black'}`}
           >
             <Heart size={24} fill={isLiked ? 'currentColor' : 'none'} />
           </button>
-          <span className="text-white font-semibold">
-            {(post.likes + (isLiked ? 1 : 0)).toLocaleString()} likes
-          </span>
+          <button className="text-black">
+            <MessageCircle size={24} />
+          </button>
+          <button className="text-black">
+            <Share size={24} />
+          </button>
         </div>
-        
-        <button className="glass-button px-4 py-2 rounded-full text-sm font-semibold text-white hover:scale-105 transition-transform">
-          Shop Look
-        </button>
+      </div>
+
+      {/* Likes */}
+      <div className="px-4 pb-2">
+        <span className="text-black font-semibold">
+          {(post.likes + (isLiked ? 1 : 0)).toLocaleString()} likes
+        </span>
       </div>
 
       {/* Caption */}
-      <p className="text-white text-sm leading-relaxed">
-        <span className="font-semibold mr-2">{post.user.name}</span>
-        {post.caption}
-      </p>
+      <div className="px-4 pb-4">
+        <p className="text-black text-sm">
+          <span className="font-semibold mr-2">{post.user.name}</span>
+          {post.caption}
+        </p>
+      </div>
+
+      {/* Product Strip */}
+      <div className="product-strip">
+        <h4 className="text-sm font-semibold text-gray-800 mb-3">Shop this look</h4>
+        <div className="flex gap-3 overflow-x-auto pb-2">
+          {post.products.map((product) => (
+            <button
+              key={product.id}
+              className="product-item hover:shadow-md transition-shadow"
+              onClick={() => onProductClick(product)}
+            >
+              <img 
+                src={product.image} 
+                alt={product.name}
+                className="w-full h-16 object-cover rounded mb-2"
+              />
+              <div className="text-xs">
+                <p className="font-medium text-gray-900 truncate">{product.name}</p>
+                <p className="text-gray-600 font-semibold">{product.price}</p>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
