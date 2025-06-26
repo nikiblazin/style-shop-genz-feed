@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Heart, MessageCircle, Share } from "lucide-react";
+import { Heart, MessageCircle, Share, Bookmark } from "lucide-react";
 
 interface Product {
   id: number;
@@ -30,80 +30,102 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
   const [isLiked, setIsLiked] = useState(false);
 
   return (
-    <div className="feed-card">
-      {/* User Header */}
-      <div className="flex items-center gap-3 p-4">
-        <img 
-          src={post.user.avatar} 
-          alt={post.user.name}
-          className="w-10 h-10 rounded-full"
-        />
-        <span className="font-semibold text-black">{post.user.name}</span>
-      </div>
-
-      {/* Image */}
-      <div className="w-full">
+    <div className="relative w-full h-screen bg-black">
+      {/* Main Image/Video */}
+      <div className="w-full h-full relative">
         <img 
           src={post.image} 
           alt="Fashion post"
-          className="w-full h-96 object-cover"
+          className="w-full h-full object-cover"
         />
-      </div>
+        
+        {/* Right side actions - TikTok style */}
+        <div className="absolute right-4 bottom-32 flex flex-col items-center gap-6">
+          {/* User Avatar */}
+          <div className="relative">
+            <img 
+              src={post.user.avatar} 
+              alt={post.user.name}
+              className="w-12 h-12 rounded-full border-2 border-white"
+            />
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+              <span className="text-white text-xs font-bold">+</span>
+            </div>
+          </div>
 
-      {/* Actions */}
-      <div className="flex items-center justify-between p-4">
-        <div className="flex items-center gap-4">
-          <button 
-            onClick={() => setIsLiked(!isLiked)}
-            className={`transition-all duration-200 ${isLiked ? 'text-red-500' : 'text-black'}`}
-          >
-            <Heart size={24} fill={isLiked ? 'currentColor' : 'none'} />
-          </button>
-          <button className="text-black">
-            <MessageCircle size={24} />
-          </button>
-          <button className="text-black">
-            <Share size={24} />
+          {/* Like Button */}
+          <div className="flex flex-col items-center">
+            <button 
+              onClick={() => setIsLiked(!isLiked)}
+              className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 ${
+                isLiked ? 'bg-red-500/20' : 'bg-black/20'
+              }`}
+            >
+              <Heart 
+                size={28} 
+                className={isLiked ? 'text-red-500' : 'text-white'} 
+                fill={isLiked ? 'currentColor' : 'none'} 
+              />
+            </button>
+            <span className="text-white text-xs font-semibold mt-1">
+              {(post.likes + (isLiked ? 1 : 0)).toLocaleString()}
+            </span>
+          </div>
+
+          {/* Comment Button */}
+          <div className="flex flex-col items-center">
+            <button className="w-12 h-12 rounded-full bg-black/20 flex items-center justify-center">
+              <MessageCircle size={28} className="text-white" />
+            </button>
+            <span className="text-white text-xs font-semibold mt-1">124</span>
+          </div>
+
+          {/* Share Button */}
+          <div className="flex flex-col items-center">
+            <button className="w-12 h-12 rounded-full bg-black/20 flex items-center justify-center">
+              <Share size={28} className="text-white" />
+            </button>
+            <span className="text-white text-xs font-semibold mt-1">Share</span>
+          </div>
+
+          {/* Bookmark Button */}
+          <button className="w-12 h-12 rounded-full bg-black/20 flex items-center justify-center">
+            <Bookmark size={28} className="text-white" />
           </button>
         </div>
-      </div>
 
-      {/* Likes */}
-      <div className="px-4 pb-2">
-        <span className="text-black font-semibold">
-          {(post.likes + (isLiked ? 1 : 0)).toLocaleString()} likes
-        </span>
-      </div>
+        {/* Bottom content */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+          {/* User info and caption */}
+          <div className="mb-4">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-white font-semibold text-lg">@{post.user.name}</span>
+            </div>
+            <p className="text-white text-sm leading-relaxed">{post.caption}</p>
+          </div>
 
-      {/* Caption */}
-      <div className="px-4 pb-4">
-        <p className="text-black text-sm">
-          <span className="font-semibold mr-2">{post.user.name}</span>
-          {post.caption}
-        </p>
-      </div>
-
-      {/* Product Strip */}
-      <div className="product-strip">
-        <h4 className="text-sm font-semibold text-gray-800 mb-3">Shop this look</h4>
-        <div className="flex gap-3 overflow-x-auto pb-2">
-          {post.products.map((product) => (
-            <button
-              key={product.id}
-              className="product-item hover:shadow-md transition-shadow"
-              onClick={() => onProductClick(product)}
-            >
-              <img 
-                src={product.image} 
-                alt={product.name}
-                className="w-full h-16 object-cover rounded mb-2"
-              />
-              <div className="text-xs">
-                <p className="font-medium text-gray-900 truncate">{product.name}</p>
-                <p className="text-gray-600 font-semibold">{product.price}</p>
-              </div>
-            </button>
-          ))}
+          {/* Product Strip */}
+          <div className="mb-4">
+            <div className="flex gap-3 overflow-x-auto pb-2">
+              {post.products.map((product) => (
+                <button
+                  key={product.id}
+                  className="bg-white/90 backdrop-blur-sm rounded-lg p-3 min-w-[100px] shadow-lg hover:bg-white transition-all"
+                  onClick={() => onProductClick(product)}
+                >
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-12 object-cover rounded mb-2"
+                  />
+                  <div className="text-xs">
+                    <p className="font-medium text-gray-900 truncate">{product.name}</p>
+                    <p className="text-gray-600 font-semibold">{product.price}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
