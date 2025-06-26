@@ -17,7 +17,7 @@ const BottomNavigation = () => {
           {navItems.map((item, index) => (
             <button
               key={index}
-              className={`flex flex-col items-center gap-1 px-3 py-2 transition-all duration-200 ${
+              className={`flex flex-col items-center justify-center p-3 transition-all duration-200 ${
                 item.active 
                   ? 'text-white' 
                   : 'text-gray-500 hover:text-white'
@@ -30,7 +30,6 @@ const BottomNavigation = () => {
               ) : (
                 <item.icon size={24} />
               )}
-              <span className="text-xs font-medium">{item.label}</span>
             </button>
           ))}
         </div>
