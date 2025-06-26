@@ -29,6 +29,13 @@ interface FeedPostProps {
 
 const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
   const [isLiked, setIsLiked] = useState(false);
+  const [isTextExpanded, setIsTextExpanded] = useState(false);
+
+  const MAX_TEXT_LENGTH = 100;
+  const shouldTruncate = post.caption.length > MAX_TEXT_LENGTH;
+  const displayText = isTextExpanded || !shouldTruncate 
+    ? post.caption 
+    : post.caption.slice(0, MAX_TEXT_LENGTH);
 
   return (
     <div className="relative w-full h-screen bg-black flex items-center justify-center">
@@ -72,7 +79,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
               className="w-10 h-10 rounded-full flex items-center justify-center"
             >
               <Heart 
-                size={24} 
+                size={20} 
                 className={isLiked ? 'text-red-500' : 'text-white'} 
                 fill={isLiked ? 'currentColor' : 'none'} 
               />
@@ -85,7 +92,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
           {/* Comment Button */}
           <div className="flex flex-col items-center">
             <button className="w-10 h-10 rounded-full flex items-center justify-center">
-              <MessageCircle size={24} className="text-white" fill="white" />
+              <MessageCircle size={20} className="text-white" />
             </button>
             <span className="text-white text-xs font-semibold mt-1">124</span>
           </div>
@@ -93,7 +100,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
           {/* Share Button */}
           <div className="flex flex-col items-center">
             <button className="w-10 h-10 rounded-full flex items-center justify-center">
-              <Share size={24} className="text-white" fill="white" />
+              <Share size={20} className="text-white" />
             </button>
             <span className="text-white text-xs font-semibold mt-1">Share</span>
           </div>
@@ -101,7 +108,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
           {/* Bookmark Button */}
           <div className="flex flex-col items-center">
             <button className="w-10 h-10 rounded-full flex items-center justify-center">
-              <Bookmark size={24} className="text-white" fill="white" />
+              <Bookmark size={20} className="text-white" />
             </button>
           </div>
         </div>
@@ -109,11 +116,29 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
         {/* Bottom content with better spacing */}
         <div className="absolute bottom-0 left-0 right-0 pb-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
           {/* User info and caption */}
-          <div className="px-4 mb-4">
+          <div className="px-4 mb-4 pr-16">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-white font-semibold text-lg">@{post.user.name}</span>
             </div>
-            <p className="text-white text-sm leading-relaxed">{post.caption}</p>
+            <div className="text-white text-sm leading-relaxed">
+              <span>{displayText}</span>
+              {shouldTruncate && !isTextExpanded && (
+                <button 
+                  onClick={() => setIsTextExpanded(true)}
+                  className="text-gray-300 ml-1 font-medium"
+                >
+                  ...több
+                </button>
+              )}
+              {shouldTruncate && isTextExpanded && (
+                <button 
+                  onClick={() => setIsTextExpanded(false)}
+                  className="text-gray-300 ml-2 font-medium"
+                >
+                  kevesebb
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Product Strip with better visibility and scrollbar */}
