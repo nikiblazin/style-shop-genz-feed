@@ -46,7 +46,7 @@ const Index = () => {
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150"
       },
       type: "image" as const,
-      media: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600",
+      media: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600",
       likes: 3156,
       caption: "Gen Z vibes! 💫 #genz #streetstyle #trendy",
       products: [
