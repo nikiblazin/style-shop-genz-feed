@@ -52,7 +52,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
         )}
         
         {/* Right side actions - TikTok style - moved higher up */}
-        <div className="absolute right-3 bottom-48 flex flex-col items-center gap-4">
+        <div className="absolute right-3 bottom-56 flex flex-col items-center gap-4 z-20">
           {/* User Avatar */}
           <div className="relative">
             <img 
@@ -107,7 +107,7 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
         </div>
 
         {/* Bottom content with better spacing */}
-        <div className="absolute bottom-0 left-0 right-0 pb-28 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+        <div className="absolute bottom-0 left-0 right-0 pb-20 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
           {/* User info and caption */}
           <div className="px-4 mb-4">
             <div className="flex items-center gap-2 mb-2">
@@ -116,13 +116,13 @@ const FeedPost = ({ post, onProductClick }: FeedPostProps) => {
             <p className="text-white text-sm leading-relaxed">{post.caption}</p>
           </div>
 
-          {/* Product Strip with better visibility */}
+          {/* Product Strip with better visibility and scrollbar */}
           <div className="px-4">
-            <div className="flex gap-3 overflow-x-auto pb-4">
+            <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent">
               {post.products.map((product) => (
                 <button
                   key={product.id}
-                  className="bg-white/95 backdrop-blur-sm rounded-xl p-3 min-w-[110px] shadow-xl hover:bg-white transition-all duration-200 hover:scale-105"
+                  className="bg-white/95 backdrop-blur-sm rounded-xl p-3 min-w-[110px] shadow-xl hover:bg-white transition-all duration-200 hover:scale-105 flex-shrink-0"
                   onClick={() => onProductClick(product)}
                 >
                   <img 
